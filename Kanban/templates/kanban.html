@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+ {% if  user.is_authenticated %}
+
+<div class="container-fluid pt-3">
+    <h3>Trello style Kanban Layout</h3>
+    <h6>Stacks vertically on mobile screens</h6>
+    <div class="row flex-row flex-sm-nowrap py-5">
+        <div class="col-sm-4 col-md-3">
+            <div class="card">
+                <div class="card-block">
+                    <a href="" data-toggle="dismiss" class="close">&times;</a>
+                    <h4 class="card-title text-truncate py-2">Category 1</h4>
+                    <div class="card p-2 bg-faded">
+                        <h5 class="card-title">Item</h5>
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+            <div class="card">
+                <div class="card-block">
+                    <a href class="close">&times;</a>
+                    <h4 class="card-title text-truncate py-2">To do lists</h4>
+                    <div class="card p-2 bg-faded">
+                        <h5 class="card-title">Item</h5>
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <h5 class="card-title">Item</h5>
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+            <div class="card">
+                <div class="card-block">
+                    <a href class="close">&times;</a>
+                    <h4 class="card-title text-truncate py-2">In progress</h4>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3">
+            <div class="card">
+                <div class="card-block">
+                    <a href class="close">&times;</a>
+                    <h4 class="card-title text-truncate py-2">Done</h4>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <h5 class="card-title">Item</h5>
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <hr>
+                    <div class="card p-2 bg-faded">
+                        <p>With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}
