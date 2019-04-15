@@ -34,7 +34,7 @@ def register(request):
             user.set_password(request.POST.get('password'))
             user.save()
 
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('login'))
 
 
 
