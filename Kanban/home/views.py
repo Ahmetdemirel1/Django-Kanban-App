@@ -4,19 +4,35 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .forms import *
-# Create your views here.
+from core.forms import *
+
+import random
+
+
+def get_random_color():
+    letters = '0123456789abcdef'
+    color = '#'
+    for i in range(0, 6):
+        color += random.choice(letters)
+
+    return color
 
 
 def home(request):
-
+    card_form = KanbanCardForm(request.POST)
     if request.user.is_authenticated:
         current_user = request.user
         username = User.objects.get(username=current_user.username)
-
-        return render(request, 'kanban.html', {"username": username})
+        user_icon_text = current_user.username[0].upper()
+        user_icon_color = get_random_color()
+        return render(request, 'kanban.html', {"username": username,
+                                               "user_icon_text": user_icon_text,
+                                               "user_icon_color": user_icon_color,
+                                               "card_form":card_form})
 
     return render(request, 'kanban.html')
 
@@ -45,7 +61,6 @@ def register(request):
                 user.save()
 
         return HttpResponseRedirect(reverse('login'))
-
 
 
 

@@ -23,17 +23,25 @@
         <a href="/register" class="btn btn-secondary my-2 my-sm-0 mx-2" role="button" aria-pressed="true">Register</a>
         {% endif %}
         {% if user.is_authenticated %}
-        <h4>{{ username }}</h4>
-        <a href="#" class="btn btn-primary my-2 my-sm-0 mx-2 " role="checkbox" aria-pressed="true">{{ username }}</a>
-        <a href="/logout" class="btn btn-danger my-2 my-sm-0 " role="button" aria-pressed="true">Logout</a>
+
+        <svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" width="40" height="40">
+            <rect width="50" height="50"
+                  style="fill: {{ user_icon_color }}; width: 50px; height: 50px; border-radius: 0px; -moz-border-radius: 0px"></rect>
+            <text text-anchor="middle" y="50%" x="50%" dy="0.35em" pointer-events="auto" fill="#ffffff"
+                  font-family="HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif"
+                  style="font-weight: 400; font-size: 40px">{{user_icon_text}}
+            </text>
+        </svg>
+        <a href="/logout" class="btn btn-danger my-2 my-sm-0 mx-2 " role="button" aria-pressed="true">Logout</a>
 
         {% endif %}
 
     </div>
 </nav>
-
 {% block content %}
+
 {% endblock %}
+
 
 </body>
 

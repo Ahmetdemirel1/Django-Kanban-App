@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import *
+from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login, name='login'),
     path('logout/', user_logout, name='logout'),
+    path('add-new-card/', kanban_add, name='kanban_add')
+
 ]
