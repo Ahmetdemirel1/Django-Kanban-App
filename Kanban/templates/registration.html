@@ -9,6 +9,15 @@
         <div class="col-md-6 mx-auto">
             <div class="card card-body">
                 <h3 class="text-center mb-4">Kayıt Ol!</h3>
+                {% for message in messages %}
+
+                <div class="alert alert-danger">
+                    <a class="close" href="#" data-dismiss="alert">×</a>
+
+                    {{ message }}
+
+                </div>
+                {% endfor %}
                 <fieldset>
                     <form method="post" novalidate>
                         {% csrf_token %}

@@ -23,16 +23,26 @@ def home(request):
 
 def register(request):
     form = PersonForm(request.POST)
+
     if request.method == 'GET':
+
         return render(request, 'registration.html', {"form": form})
+
     if request.method == 'POST':
-        if form.is_valid():
-            user = User.objects.create(
-            username =request.POST.get('username'),
-            password =request.POST.get('password'),
-            email =request.POST.get('email'))
-            user.set_password(request.POST.get('password'))
-            user.save()
+        try:
+            User.objects.get(username=request.POST.get('username'))
+            messages.error(request, "Kullanıcı adı daha önce alınmış. Lütfen yeni bir kullanıcı adı giriniz.")
+
+            return HttpResponseRedirect(reverse('register'))
+
+        except:
+            if form.is_valid():
+                user = User.objects.create(
+                username =request.POST.get('username'),
+                password =request.POST.get('password'),
+                email =request.POST.get('email'))
+                user.set_password(request.POST.get('password'))
+                user.save()
 
         return HttpResponseRedirect(reverse('login'))
 
